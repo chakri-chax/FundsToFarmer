@@ -111,7 +111,7 @@ contract FundsToFarmer
 
         /* ******************************Investment Starts ************************************/
 
-            function Invest(string memory _name) public payable moreThanZero IstimeAvailabe
+            function _1_Invest(string memory _name) public payable moreThanZero IstimeAvailabe
                 {
                 InvesterData storage invester =  investerInfo[msg.sender] ;
                 invester.addr = msg.sender;
@@ -140,12 +140,12 @@ contract FundsToFarmer
 
        
         // ***************** Investment Over ****************************
-        function DepositAmount() public payable  onlyOwner IsInvestmentOver moreThanZero
+        function _2_DepositAmount() public payable  onlyOwner IsInvestmentOver moreThanZero
                 {
                     depositTotalAmount = msg.value;
                     
                 }
-            function shareProfitsToFarmer() public payable  onlyOwner notClaimed
+            function _3_shareProfitsToFarmer() public payable  onlyOwner notClaimed
                 {
                     require(depositTotalAmount > totalInvestAmt ,"No Profits to share");
                     TotalProfit = address(this).balance - totalInvestAmt ;
@@ -163,7 +163,7 @@ contract FundsToFarmer
 
             }
         
-	function ClaimFunds() public payable notClaimed returns(uint)
+	function _4_ClaimFunds() public payable notClaimed returns(uint)
             {
                 uint InvestByInvester = Iamt[msg.sender];//Iamt[invester.addr]
                 uint BP = setBasisPoints();
