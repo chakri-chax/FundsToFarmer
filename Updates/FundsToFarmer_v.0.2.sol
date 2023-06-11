@@ -217,7 +217,7 @@ contract FundsToFarmer {
         return (ShareToInvester);
     }
 
-    function _5_FlushToFarmer() public payable onlyOwner moreThanZero {
+    function _5_FlushToFarmer() public payable onlyOwner {
         sendTo = payable(owner);
         sendTo.transfer(address(this).balance);
     }
