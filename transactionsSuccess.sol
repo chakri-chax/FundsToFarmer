@@ -338,10 +338,6 @@ contract FundsToFarmer
                  uint shareAmt = seedAmt + profitShare;          
                  return percentage;
 
-                }
-
-
-
-            
+               } 
             
         }
